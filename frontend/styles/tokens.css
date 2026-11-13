@@ -1,0 +1,86 @@
+:root {
+  
+  --canvas: #e8e6dd;   
+  --cream: #faf9f5;    
+  
+  --charcoal: #13120f;
+  --ink: #2f2e29;
+  --paper: #fafaf5;
+  --coral: #c0603a;
+  --coral-soft: #d98a68; 
+  --sage: #5a7d5a;
+  --sage-light: #8fb08f;
+  --alarm: #d24b38;
+  --line: #d8d5c7;
+  --hatch: repeating-linear-gradient(
+    45deg,
+    #e9e8de,
+    #e9e8de 7px,
+    #f2f1e8 7px,
+    #f2f1e8 14px
+  );
+
+  --screen: var(--cream);
+  --surface: #fff;
+  --fg: var(--ink);
+  
+  --fg-muted: #6b6759;
+  --fg-soft: #86826f;
+  --hair: rgba(47, 46, 41, 0.12);
+  --tint-bg: rgba(47, 46, 41, 0.05);
+  --tint-line: rgba(47, 46, 41, 0.16);
+  --glass-bg: rgba(47, 46, 41, 0.06);
+  --glass-line: rgba(47, 46, 41, 0.16);
+  
+  --chip-line: rgba(47, 46, 41, 0.08);
+  --accent: var(--coral);
+  --accent-fg: #fff;
+  --ready: var(--sage);
+  --danger: var(--coral);
+  --shadow-btn: 0 6px 18px rgba(0, 0, 0, 0.16);
+  --shadow-card: 10px 14px 34px rgba(47, 46, 41, 0.1);
+  --shadow-print: 10px 16px 34px rgba(47, 46, 41, 0.2),
+    4px 6px 14px rgba(47, 46, 41, 0.14), 0 0 0 1px rgba(47, 46, 41, 0.11);
+  --shadow-pop: 0 18px 44px rgba(47, 46, 41, 0.3);
+
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+
+  --r-pill: 999px;
+  --r-card: 20px;
+  --r-panel: 18px;
+  --r-field: 14px;
+  --r-tile: 10px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --ease-glide: cubic-bezier(0.45, 0, 0.25, 1);
+
+  --max-stage-w: 1728px;
+  --max-stage-h: 1117px;
+}
+
+.theme-dark {
+  --screen: var(--charcoal);
+  --surface: rgba(240, 240, 236, 0.05);
+  --fg: #f7f7f5;
+  --fg-muted: #a5a49c;
+  --fg-soft: #bab8b0;
+  --hair: rgba(240, 240, 236, 0.14);
+  --tint-bg: rgba(240, 240, 236, 0.07);
+  --tint-line: rgba(240, 240, 236, 0.18);
+  --glass-bg: rgba(240, 240, 236, 0.12);
+  --glass-line: rgba(240, 240, 236, 0.24);
+  --chip-line: rgba(240, 240, 236, 0.08);
+  --accent-fg: #fff;
+  --ready: var(--sage-light);
+  --danger: var(--coral-soft);
+  --shadow-btn: 0 6px 18px rgba(0, 0, 0, 0.28);
+  --shadow-card: 12px 16px 36px rgba(0, 0, 0, 0.38), 4px 6px 14px rgba(0, 0, 0, 0.26),
+    0 0 0 1px rgba(240, 240, 236, 0.1);
+  --shadow-print: 10px 16px 34px rgba(0, 0, 0, 0.44), 4px 6px 14px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(240, 240, 236, 0.1);
+  --shadow-pop: 0 18px 44px rgba(0, 0, 0, 0.42);
+}

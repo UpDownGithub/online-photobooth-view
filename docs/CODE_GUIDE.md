@@ -1,6 +1,6 @@
 # 공개 코드 안내
 
-실제 프로젝트의 코드에서 사용자 화면과 계산 로직을 선별했습니다. 아래 폴더는 공개한 코드의 탐색 구조이며, 서비스 전체의 구조도는 아닙니다.
+실제 프로젝트의 코드에서 사용자 화면과 계산 로직을 선별했습니다.
 
 ## 프런트엔드
 
@@ -22,7 +22,7 @@
 | `partial-updates.js` | 실제 부분 갱신 함수 발췌. 사용자 식별자는 인자로 받으며 설정 패널 연결 호출은 생략 |
 | `sticker.interactions.js` | 실제 포인터 조작 코드 발췌. 위치 확정·삭제 결과는 `onChange`·`onRemove` 콜백으로 전달 |
 
-이 샘플의 식별자와 화면 상태는 렌더링 입력입니다. 영상 연결과 서비스 동기화를 제공하는 코드는 포함하지 않습니다. 코드를 응용할 때는 텍스트·이미지 경로·스타일 값 등 외부 입력을 적절히 검증해야 합니다.
+이 샘플의 식별자와 화면 상태는 렌더링 입력입니다. 아래 독립 예제에서는 촬영·사진 처리·peer 협상을 추가로 다루지만, 실제 서비스의 전송·동기화 계층은 포함하지 않습니다. 코드를 응용할 때는 텍스트·이미지 경로·스타일 값 등 외부 입력을 적절히 검증해야 합니다.
 
 ## 서버
 
@@ -44,3 +44,15 @@
 3. `partial-updates.js`에서 영상 엘리먼트를 교체하지 않는 상태 갱신 확인
 4. `sticker.interactions.js`에서 포인터 이동과 정규화 좌표의 연결 확인
 5. 서버 예시에서 컨트롤러·서비스·순수 계산의 책임 분리 확인
+
+## 촬영·사진 처리·WebRTC 흐름
+
+세 기능을 입력부터 결과·테스트까지 따라볼 수 있는 독립 예제를 추가했습니다. 원본에서 유지한 로직, 공개용으로 재구성한 경계와 검증 한계는 [촬영·사진 처리·WebRTC 예제](SAMPLE_FLOWS.md)에 구분했습니다.
+
+| 내용 | 코드 | 검증 |
+| --- | --- | --- |
+| Ready → 카운트다운 → 촬영 → 리뷰 | [촬영 세션](../backend/modules/shooting/shooting-session.cjs) | [상태 전환 테스트](../tests/shooting.test.cjs) |
+| 캡처 → 압축 → 전달 → 이미지 합성 | [캡처](../frontend/src/media/capture-frame.js), [압축·재시도](../frontend/src/media/shot-upload.js), [처리 연결](../frontend/src/media/shot-pipeline.js), [합성](../backend/modules/render/compose.cjs) | [사진 처리 테스트](../tests/media.test.cjs), [연결 예제](../examples/shooting-flow.cjs) |
+| ICE 후보 대기·한쪽 offer 생성·종료 정리 | [peer 협상](../frontend/src/rtc/peer-session.js) | [두 peer 테스트](../tests/rtc.test.cjs) |
+
+이 예제는 가짜 참가자·합성 이미지·가짜 peer로 실행합니다. 실제 운영 주소·인증·사진 저장소·TURN 발급 연결은 포함하지 않습니다.

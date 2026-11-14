@@ -1,0 +1,11 @@
+{
+  "name": "online-photobooth-view-samples",
+  "private": true,
+  "description": "Offline, synthetic examples extracted and adapted from Online Photobooth",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "example": "node examples/shooting-flow.cjs"
+  },
+  "devDependencies": { "sharp": "0.35.5" }
+}

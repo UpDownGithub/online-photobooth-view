@@ -72,3 +72,4 @@
 !/tests/media.test.cjs
 !/tests/rtc.test.cjs
 !/docs/SAMPLE_FLOWS.md
+!/docs/TECHNICAL_NOTES.md
